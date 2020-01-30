@@ -1,0 +1,20 @@
+#wrap {
+    border:1px  solid #14639b;
+    display:flex;
+    width:400px;
+    height:500px;
+    margin: 0 auto;
+    padding:.5em;
+    border-radius:1em;
+    background-color: #14639b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#calculator-display-screen{
+    background-color: #0effb0;
+    border-radius:1em;
+    padding: 1px;
+    height: 67px;
+    width: 100%;
+
+}
