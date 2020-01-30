@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
 #wrap {
     border:1px  solid #14639b;
-    display:flex;
     width:400px;
-    height:500px;
     margin: 0 auto;
     padding:.5em;
     border-radius:1em;
@@ -12,9 +11,79 @@
 
 #calculator-display-screen{
     background-color: #0effb0;
-    border-radius:1em;
+    align-items: center;
+    border-radius:  0 1em 1em 0 ;
     padding: 1px;
-    height: 67px;
+    height: 69px;
     width: 100%;
+    -moz-box-shadow:    inset 0 0 10px #262626;
+    -webkit-box-shadow: inset 0 0 10px #262626;
+    box-shadow:         inset 0 0 10px #262626;
+}
 
+#clear-entry {
+    width: 61px;
+    height: 69px;
+    border-radius: 1em 0 0 1em;
+    margin-right: 5px;
+    background-color: red;
+    color: #fff;
+    font-size: 1em;
+    border-color: red;
+    font-weight: bold;
+}
+#numbers-place {
+    margin: 9px 12px 0 0;
+    font-size:2em;
+    font-family: 'Orbitron', sans-serif;
+    float:right;
+}
+#button-digits {
+
+}
+#buttons-numbers{
+
+}
+.buttons-col {
+    padding:1em;
+    border-radius:1em;
+    background-color: rgba(64, 161, 235, 0.3);
+    min-height:90px;
+    margin-top: 1em;
+}
+
+.buttons-col button  {
+    padding: 10px 24px;
+    margin-right: 21px;
+    font-size: 2em;
+    border-radius: 2em;
+}
+.buttons-col button:last-child {
+    margin-right:0;
+}
+.buttons-col{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.operator-col {
+    border-radius: 1em;
+    min-height: 90px;
+    margin-top: 11px;
+    margin-left: -32px;
+    font-size: 75px;
+}
+
+.operator-col button {
+    padding: 10px 24px;
+    margin-right: 21px;
+    font-size: 2em;
+    color:white;
+    border-radius: 2em;
+    background-color: #262626;
+    border: 1px solid #262626;
+}
+
+.operator-col div {
+    text-align:center;
 }
