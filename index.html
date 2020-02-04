@@ -10,57 +10,56 @@
      <link type="text/css" rel="stylesheet" href="css/calculator.css"/>
 </head>
 <body>
-<div class="container" id="wrap">
+    <div class="container" id="wrap">
 
-    <div class="row">
-    <!--clear entry button-->
-        <div class="col-md-2">
-            <button id="clear-entry">CE</button>
+        <div class="row">
+        <!--clear entry button-->
+            <div class="col-md-2">
+                <button id="clear-entry">CE</button>
+            </div>
+            <div class="col-md-10">
+            <!--calculation display-->
+                <div id="calculator-display-screen">
+                    <div id="numbers-place">0</div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-10">
-        <!--calculation display-->
-            <div id="calculator-display-screen">
-                <div id="numbers-place">0</div>
+
+        <div class="row" id="button-digits">
+            <!--numbers buttons-->
+            <div class="col-md-9" id="buttons-numbers">
+                <div class="buttons-col">
+                    <button value="7">7</button>
+                    <button value="8">8</button>
+                    <button value="9">9</button>
+                </div>
+                <div class="buttons-col">
+                    <button value="4">4</button>
+                    <button value="5">5</button>
+                    <button value="6">6</button>
+                </div>
+                <div class="buttons-col">
+                    <button value="1">1</button>
+                    <button value="2">2</button>
+                    <button value="3">3</button>
+                </div>
+                <div class="buttons-col">
+                    <button value="0">0</button>
+                    <button value=".">.</button>
+                    <button value="=">=</button>
+                </div>
+            </div>
+            <!--buttons operators-->
+            <div class="col-md-3" id="buttons-operators">
+                <div class="operator-col">
+                    <div><i class="fas fa-plus-circle"></i></div>
+                    <div><i class="fas fa-minus-circle"></i></div>
+                    <div><i class="fas fa-times-circle"></i></div>
+                    <div><i class="fas fa-divide"></i></div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="row" id="button-digits">
-        <!--numbers buttons-->
-        <div class="col-md-9" id="buttons-numbers">
-            <div class="buttons-col">
-                <button value="7">7</button>
-                <button value="8">8</button>
-                <button value="9">9</button>
-            </div>
-            <div class="buttons-col">
-                <button value="4">4</button>
-                <button value="5">5</button>
-                <button value="6">6</button>
-            </div>
-            <div class="buttons-col">
-                <button value="1">1</button>
-                <button value="2">2</button>
-                <button value="3">3</button>
-            </div>
-            <div class="buttons-col">
-                <button value="0">0</button>
-                <button value=".">.</button>
-                <button value="=">=</button>
-            </div>
-        </div>
-        <!--buttons operators-->
-        <div class="col-md-3" id="buttons-operators">
-            <div class="operator-col">
-                <div><i class="fas fa-plus-circle"></i></div>
-                <div><i class="fas fa-minus-circle"></i></div>
-                <div><i class="fas fa-times-circle"></i></div>
-                <div><i class="fas fa-divide"></i></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 </body>
+<script src="js/calculator.js"></script>
 </html>
