@@ -1,6 +1,9 @@
-//clear the entry of the display
+let integer =[];
+let getClickedSymbol;
+
 const getClearEntryButton = document.getElementById('clear-entry');
 const getNumbersPlace = document.getElementById('numbers-place');
+
 getClearEntryButton.addEventListener('click',()=>{
     getNumbersPlace.innerHTML = '';
     count = 0;
@@ -8,11 +11,6 @@ getClearEntryButton.addEventListener('click',()=>{
 });
 document.querySelector("#buttons-numbers").
 addEventListener('click', selectNumbers );
-
-// display each number in the numbers place
-// each number that is clicked its value will be rendered in the numbers place
-let integer =[];
-let getClickedSymbol;
 
 function selectNumbers (e) {
     getClickedSymbol = e.target.value;
@@ -22,7 +20,7 @@ function selectNumbers (e) {
 let count = 0;
 function operationSwitcher (){
     count = ++count;
-    if((integer[0] ==='.') && (count < 4)){
+    if((integer[0] ==='.') && (count < 5)){
         placeNumber()
     }else if(
         (getClickedSymbol !== ".")
@@ -30,11 +28,10 @@ function operationSwitcher (){
         && (integer[0] !== '.') ) {
         placeNumber()
     }else if( (getClickedSymbol === '.')
-        && (count < 2) ) {
+        && (count < 5) ) {
         placeNumber()
     }
 }
-
 function placeNumber() {
     const displayNumber = document.createElement('span');
     displayNumber.innerHTML =  getClickedSymbol;
