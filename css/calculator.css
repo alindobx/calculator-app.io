@@ -77,11 +77,11 @@
 .operator-col button {
     padding: 10px 24px;
     margin-right: 21px;
-    font-size: 2em;
-    color:white;
+    font-size: 1em;
+    color:black;
     border-radius: 2em;
-    background-color: #262626;
-    border: 1px solid #262626;
+    background-color: transparent;
+    border: none;
 }
 
 .operator-col div {
