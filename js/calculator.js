@@ -36,7 +36,7 @@ function getOperator (e) {
    getClickedOperator = e.target.value;
    operator.push(getClickedOperator);
     console.log('Operator Selected=====',  getClickedOperator);
-   operationSwitcher();
+    operatorController();
     // firstNumber = firstOperand();
 }
 function operationSwitcher (){
@@ -53,24 +53,25 @@ function operationSwitcher (){
     }else if( (getClickedSymbol === '.')
         && (count < 5) ) {
         placeNumber()
-    } else if( (integer.length <= 2) && (operator.length <= 1) )  {
+    } else if( (integer.length <= 2) && (operator.length >= 1) )  {
         getNumbersPlace.innerHTML = getClickedSymbol;
     }
 
 }
 
-document.getElementById('plus').addEventListener('click',()=>{
-    const total = results + parseInt(integer[1]);
+function operatorController(){
+    const total = firstNumberOperand.first + parseInt(integer[1]);
     if((integer[0]) && (integer[1] && (firstNumberOperand.first === 0)) ) {
        add();
    }else if( (integer[0]) && (integer[1] ) && (operator[0]) ){
        console.log(total);
+       firstNumberOperand.first = total;
        getNumbersPlace.innerHTML = total;
    }else{
        return null;
    }
 
-});
+}
 
 function add(){
     const leftOperand = integer[0];
