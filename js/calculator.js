@@ -66,7 +66,7 @@ function operatorController(){
        firstNumberOperand.first = total;
        getNumbersPlace.innerHTML = total;
    }else{
-       return null;
+        return null; //pseudo -code
    }
 }
 
