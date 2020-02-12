@@ -1,6 +1,5 @@
 let integer  = [];
 let operator = [];
-let firstNumber = 0;
 let results = 0;
 let getClickedSymbol;
 let count = 0;
@@ -30,15 +29,15 @@ function selectNumbers (e) {
     integer.splice(1,1,getClickedSymbol);
     operationSwitcher();
     console.log('Number Selected=====', getClickedSymbol)
-    // firstNumber = firstOperand();
 }
+
 function getOperator (e) {
    getClickedOperator = e.target.value;
    operator.push(getClickedOperator);
     console.log('Operator Selected=====',  getClickedOperator);
     operatorController();
-    // firstNumber = firstOperand();
 }
+
 function operationSwitcher (){
     count = ++count;
     if((integer[0] ==='.') && (count < 5)){
@@ -56,7 +55,6 @@ function operationSwitcher (){
     } else if( (integer.length <= 2) && (operator.length >= 1) )  {
         getNumbersPlace.innerHTML = getClickedSymbol;
     }
-
 }
 
 function operatorController(){
@@ -70,7 +68,6 @@ function operatorController(){
    }else{
        return null;
    }
-
 }
 
 function add(){
@@ -87,7 +84,3 @@ function placeNumber() {
     displayNumber.innerHTML =  getClickedSymbol;
     getNumbersPlace.append(displayNumber);
 }
-
-
-
-
