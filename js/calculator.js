@@ -1,7 +1,8 @@
 let integer  = [];
 let operator = [];
+let memoryStorage = [0];
 let results = 0;
-let getClickedSymbol;
+let currentlySelectedInteger;
 let count = 0;
 let getClickedOperator;
 let firstNumberOperand = {
@@ -16,24 +17,23 @@ getClearEntryButton.addEventListener('click',()=>{
     count = 0;
     integer = [];
     operator = [];
-    getClickedSymbol = 0;
+    currentlySelectedInteger = 0;
     getClickedOperator = 0;
     firstNumberOperand.first = 0;
 });
 
-document.querySelector("#buttons-numbers").addEventListener('click', selectNumbers );
+document.querySelector("#buttons-numbers").addEventListener('click', getInteger );
 document.querySelector('#operator-buttons').addEventListener('click', getOperator );
 
-function selectNumbers (e) {
-    getClickedSymbol = e.target.value;
-    integer.splice(1,1,getClickedSymbol);
+function getInteger (e) {
+    currentlySelectedInteger = e.target.value;
+    integer.splice(1,1,currentlySelectedInteger);
     operationSwitcher();
-    console.log('Number Selected=====', getClickedSymbol)
+    console.log('Number Selected=====', currentlySelectedInteger)
 }
 
 function getOperator (e) {
    getClickedOperator = e.target.value;
-   operator.push(getClickedOperator);
     console.log('Operator Selected=====',  getClickedOperator);
     operatorController();
 }
@@ -43,24 +43,45 @@ function operationSwitcher (){
     if((integer[0] ==='.') && (count < 5)){
         placeNumber()
     }else if(
-        (getClickedSymbol !== ".")
+        (currentlySelectedInteger !== "." )
+        && (currentlySelectedInteger !== "M+")
+        && (currentlySelectedInteger !== "M-")
+        && (currentlySelectedInteger !== "MR")
+        && (currentlySelectedInteger !== "MC")
         && (count < 10)
         && (integer[0] !== '.')
-        // if get ClickedSymbol is not +
-        && (getClickedOperator !== '+') ) {
+        && (getClickedOperator !== '+' || '-') ) {
         placeNumber()
-    }else if( (getClickedSymbol === '.')
+    }else if( (currentlySelectedInteger === '.')
         && (count < 5) ) {
         placeNumber()
     } else if( (integer.length <= 2) && (operator.length >= 1) )  {
-        getNumbersPlace.innerHTML = getClickedSymbol;
+        getNumbersPlace.innerHTML = currentlySelectedInteger;
+    }else if(currentlySelectedInteger === "M+" && (memoryStorage[0] === 0)){
+        console.log('===== this was clicked',currentlySelectedInteger);
+        memoryStorage.splice(0,1,firstNumberOperand.first);
+    }else if(currentlySelectedInteger === "M+" && (memoryStorage[0])){
+        const memoryStorageTotal = memoryStorage[0] + firstNumberOperand.first;
+        getNumbersPlace.innerHTML = memoryStorageTotal
     }
 }
 
 function operatorController(){
-    const total = firstNumberOperand.first + parseInt(integer[1]);
+
+    let total = firstNumberOperand.first + parseInt(integer[1]);
+
+    if(getClickedOperator === '+') {
+        total = firstNumberOperand.first + parseInt(integer[1]);
+    }else if(getClickedOperator === '-') {
+        total = firstNumberOperand.first - parseInt(integer[1]);
+    }else if(getClickedOperator === '*'){
+        total = firstNumberOperand.first * parseInt(integer[1]);
+    }else if( getClickedOperator === '/' ){
+        total = firstNumberOperand.first / parseInt(integer[1]);
+    }
+
     if((integer[0]) && (integer[1] && (firstNumberOperand.first === 0)) ) {
-       add();
+        calculatorController(getClickedOperator);
    }else if( (integer[0]) && (integer[1] ) && (operator[0]) ){
        console.log(total);
        firstNumberOperand.first = total;
@@ -70,17 +91,55 @@ function operatorController(){
    }
 }
 
-function add(){
+function calculatorController (operatorSymbol) {
+    if(operatorSymbol === '+') {
+        calculate(operatorSymbol)
+    }else if(operatorSymbol ==='-'){
+        calculate(operatorSymbol)
+    }else if(operatorSymbol ==='*'){
+        calculate(operatorSymbol)
+    }else if(operatorSymbol ==='/'){
+        calculate(operatorSymbol)
+    }else if(operatorSymbol ==='=') {
+        calculate(operatorSymbol)
+    }
+}
+
+function calculate(operatorSymbol){
     const leftOperand = integer[0];
     const rightOperand = integer[1];
-    results = parseInt(leftOperand) + parseInt(rightOperand);
-    firstNumberOperand.first = results;//12
+    const plus = parseInt(leftOperand) + parseInt(rightOperand);
+    const minus = parseInt(leftOperand) - parseInt(rightOperand);
+    const multiply = parseInt(leftOperand) * parseInt(rightOperand);
+    const divide = parseInt(leftOperand) / parseInt(rightOperand);
+    if(operatorSymbol === "+") {
+        results = plus;
+    }else if (operatorSymbol === "-"){
+        results = minus;
+    }else if (operatorSymbol === "*"){
+        results = multiply;
+    }else if (operatorSymbol === "/"){
+        results = divide;
+    }else if (operatorSymbol === "=" )  {
+        if(operator[0] === '+'){
+            results = plus;
+        }else if(operator[0] === '-'){
+            results = minus;
+        }else if(operator[0] === '*'){
+            results = minus;
+        }
+    }
+    firstNumberOperand.first = results;
     getNumbersPlace.innerHTML = results;
     console.log('=====Results from Add', results)
 }
 
 function placeNumber() {
-    const displayNumber = document.createElement('span');
-    displayNumber.innerHTML =  getClickedSymbol;
-    getNumbersPlace.append(displayNumber);
+    // const displayNumber = document.createElement('span');
+    // displayNumber.innerHTML =  currentlySelectedInteger;
+    getNumbersPlace.innerHTML = currentlySelectedInteger;
+}
+
+function getMemoryStorage(total){
+    memoryStorage.push(total)
 }
