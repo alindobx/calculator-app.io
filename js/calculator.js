@@ -33,13 +33,11 @@ function getInteger(e) {
   currentlySelectedInteger = e.target.value;
   integer.splice(1, 1, currentlySelectedInteger);
   integerController();
-  console.log("Number Selected=====", currentlySelectedInteger);
 }
 
 function getOperator(e) {
   getClickedOperator = e.target.value;
   operator.push(getClickedOperator);
-  console.log("Operator Selected=====", getClickedOperator);
   operatorController();
 }
 
@@ -63,7 +61,6 @@ function integerController() {
   } else if (integer.length <= 2 && operator.length >= 1 && currentlySelectedInteger !== "M+") {
     getNumbersPlace.innerHTML = currentlySelectedInteger;
   } else if (currentlySelectedInteger === "M+" && memoryStorage[0] === 0) {
-    console.log("===== this was clicked", currentlySelectedInteger);
     memoryStorage.splice(0, 1, calculatedTotal.sum);
   } else if (currentlySelectedInteger === "M+" && memoryStorage[0]) {
     const memoryStorageTotal = memoryStorage[0] + calculatedTotal.sum;
@@ -135,15 +132,9 @@ function calculate(operatorSymbol) {
   }
   calculatedTotal.sum = results;
   getNumbersPlace.innerHTML = results;
-  console.log("=====Results from Add", results);
 }
 
 function displayInteger() {
-  // const displayNumber = document.createElement('span');
-  // displayNumber.innerHTML =  currentlySelectedInteger;
   getNumbersPlace.innerHTML = currentlySelectedInteger;
 }
 
-function getMemoryStorage(total) {
-  memoryStorage.push(total);
-}
