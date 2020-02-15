@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Calculator-App</title>
+     <title>Calculator-App-2</title>
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4e63764c61.js" crossorigin="anonymous"></script>
      <link type="text/css" rel="stylesheet" href="css/calculator.css"/>
@@ -20,12 +20,13 @@
             <div class="col-md-10">
             <!--calculation display-->
                 <div id="calculator-display-screen">
-                    <div id="numbers-place">0</div>
+                    <div id="numbers-place"></div>
+                    <div id="numbers-place2"></div>
                 </div>
             </div>
         </div>
 
-        <div class="row" id="button-digits">
+        <div class="row" id="button-symbols">
             <!--numbers buttons-->
             <div class="col-md-9" id="buttons-numbers">
                 <div class="buttons-col">
@@ -43,19 +44,25 @@
                     <button value="2">2</button>
                     <button value="3">3</button>
                 </div>
-                <div class="buttons-col">
-                    <button value="0">0</button>
-                    <button value=".">.</button>
-                    <button value="=">=</button>
+                <div id="second-last-row" class="buttons-col" >
+                    <button class="square" value="0">0</button>
+                    <button class="square" value=".">.</button>
+                </div>
+                 <div class="buttons-col" id="last-row">
+                    <button class="square" value="M+">M+</button>
+                     <button class="square" value="M-">M-</button>
+                    <button class="square" value="MR">MR</button>
+                    <button class="square" value="MC">MC</button>
                 </div>
             </div>
             <!--buttons operators-->
-            <div class="col-md-3" id="buttons-operators">
+            <div class="col-md-3" id="operator-buttons">
                 <div class="operator-col">
-                    <div><i class="fas fa-plus-circle"></i></div>
-                    <div><i class="fas fa-minus-circle"></i></div>
-                    <div><i class="fas fa-times-circle"></i></div>
-                    <div><i class="fas fa-divide"></i></div>
+                    <button id="plus" class="fas fa-plus-circle" value="+"></button>
+                    <button class="fas fa-minus-circle" value="-"></button>
+                    <button class="fas fa-times-circle" value="*"></button>
+                    <button class="fas fa-divide" value="/"></button>
+                    <button class="fas fa-equals" value="="></button>
                 </div>
             </div>
         </div>

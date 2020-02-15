@@ -8,6 +8,32 @@
     background-color: #14639b;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.square {
+    width:50%;
+    border-radius: 5px !important;
+}
+
+ #last-row button {
+    width: 19%;
+    border-radius: 5px !important;
+    font-size: 12px !important;
+    text-align: center;
+    padding: 10px 10px !important;
+    background-color: black;
+    color: white;
+    border: 1px;
+
+}
+
+ #last-row {
+     margin-top: -5px;
+     background-color: transparent;
+ }
+#second-last-row button {
+    padding: 3px;
+    margin: 0;
+}
+
 
 #calculator-display-screen{
     background-color: #0effb0;
@@ -75,15 +101,19 @@
 }
 
 .operator-col button {
-    padding: 10px 24px;
+    padding: 25px 32px;
     margin-right: 21px;
-    font-size: 2em;
-    color:white;
+    font-size: .75em;
+    color:black;
     border-radius: 2em;
-    background-color: #262626;
-    border: 1px solid #262626;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .operator-col div {
     text-align:center;
 }
+
+
